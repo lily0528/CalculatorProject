@@ -1,4 +1,5 @@
-﻿using System;
+﻿using org.mariuszgromada.math.mxparser;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+//using Expression = org.mariuszgromada.math.mxparser.Expression;
 
 namespace Calculator
 {
@@ -25,15 +27,87 @@ namespace Calculator
             InitializeComponent();
         }
 
-        //private void Grid_Initialized(object sender, EventArgs e)
-        //{ }
+        private void Grid_Initialized(object sender, EventArgs e)
+        {
+            this.Standard.Visibility = Visibility.Visible;
+            this.Weight.Visibility = Visibility.Collapsed;
+            this.Temperature.Visibility = Visibility.Collapsed;
+            this.length.Visibility = Visibility.Collapsed;
+            this.fileSize.Visibility = Visibility.Collapsed;
+            this.time.Visibility = Visibility.Collapsed;
+        }
 
-             private double total1 = 0;
+        private void Standard_Click(object sender, RoutedEventArgs e)
+        {
+            this.Standard.Visibility = Visibility.Visible;
+            this.Weight.Visibility = Visibility.Collapsed;
+            this.Temperature.Visibility = Visibility.Collapsed;
+            this.length.Visibility = Visibility.Collapsed;
+            this.fileSize.Visibility = Visibility.Collapsed;
+            this.time.Visibility = Visibility.Collapsed;
+        }
+
+        private void Weight_Click(object sender, RoutedEventArgs e)
+        {
+            this.Standard.Visibility = Visibility.Collapsed;
+            this.Weight.Visibility = Visibility.Visible;
+            this.Temperature.Visibility = Visibility.Collapsed;
+            this.length.Visibility = Visibility.Collapsed;
+            this.fileSize.Visibility = Visibility.Collapsed;
+            this.time.Visibility = Visibility.Collapsed;
+        }
+
+        private void Temperature_Click(object sender, RoutedEventArgs e)
+        {
+            this.Standard.Visibility = Visibility.Collapsed;
+            this.Weight.Visibility = Visibility.Collapsed;
+            this.Temperature.Visibility = Visibility.Visible;
+            this.length.Visibility = Visibility.Collapsed;
+            this.fileSize.Visibility = Visibility.Collapsed;
+            this.time.Visibility = Visibility.Collapsed;
+        }
+
+        private void Length_Click(object sender, RoutedEventArgs e)
+        {
+            this.Standard.Visibility = Visibility.Collapsed;
+            this.Weight.Visibility = Visibility.Collapsed;
+            this.Temperature.Visibility = Visibility.Collapsed;
+            this.length.Visibility = Visibility.Visible;
+            this.fileSize.Visibility = Visibility.Collapsed;
+            this.time.Visibility = Visibility.Collapsed;
+        }
+
+        private void fileSize_Click(object sender, RoutedEventArgs e)
+        {
+            this.Standard.Visibility = Visibility.Collapsed;
+            this.Weight.Visibility = Visibility.Collapsed;
+            this.Temperature.Visibility = Visibility.Collapsed;
+            this.length.Visibility = Visibility.Collapsed;
+            this.fileSize.Visibility = Visibility.Visible;
+            this.time.Visibility = Visibility.Collapsed;
+        }
+
+        private void time_Click(object sender, RoutedEventArgs e)
+        {
+            this.Standard.Visibility = Visibility.Collapsed;
+            this.Weight.Visibility = Visibility.Collapsed;
+            this.Temperature.Visibility = Visibility.Collapsed;
+            this.length.Visibility = Visibility.Collapsed;
+            this.fileSize.Visibility = Visibility.Collapsed;
+            this.time.Visibility = Visibility.Visible;
+        }
+
+        private double total1 = 0;
         private double total2 = 0;
         bool plusButtonClicked = false;
         bool minusButtonClicked = false;
         bool multiplyButtonClicked = false;
         bool divideButtonClicked = false;
+        bool modulusButtonClicked = false;
+        bool powerButtonClicked = false;
+        bool factorialButtonClicked = false;
+        bool squareButtonClicked = false;
+        //bool proButtonClicked = false;
 
 
         private void Btn0_Click(object sender, RoutedEventArgs e)
@@ -95,6 +169,11 @@ namespace Calculator
             minusButtonClicked = false;
             multiplyButtonClicked = false;
             divideButtonClicked = false;
+            modulusButtonClicked = false;
+            powerButtonClicked = false;
+            factorialButtonClicked = false;
+            squareButtonClicked = false;
+            //proButtonClicked = false;
         }
         private void BtnSubtract_Click(object sender, RoutedEventArgs e)
         {
@@ -105,6 +184,11 @@ namespace Calculator
             minusButtonClicked = true;
             multiplyButtonClicked = false;
             divideButtonClicked = false;
+            modulusButtonClicked = false;
+            powerButtonClicked = false;
+            factorialButtonClicked = false;
+            squareButtonClicked = false;
+            //proButtonClicked = false;
         }
 
         private void BtnMultiply_Click(object sender, RoutedEventArgs e)
@@ -116,6 +200,11 @@ namespace Calculator
             minusButtonClicked = false;
             multiplyButtonClicked = true;
             divideButtonClicked = false;
+            modulusButtonClicked = false;
+            powerButtonClicked = false;
+            factorialButtonClicked = false;
+            squareButtonClicked = false;
+            //proButtonClicked = false;
         }
 
         private void BtnDivide_Click(object sender, RoutedEventArgs e)
@@ -127,8 +216,105 @@ namespace Calculator
             minusButtonClicked = false;
             multiplyButtonClicked = false;
             divideButtonClicked = true;
+            modulusButtonClicked = false;
+            powerButtonClicked = false;
+            factorialButtonClicked = false;
+            squareButtonClicked = false;
+            //proButtonClicked = false;
         }
 
+        private void BtnMod_Click(object sender, RoutedEventArgs e)
+        {
+            total1 = total1 + double.Parse(resultTxtBox.Text);
+            resultTxtBox.Text = "";
+
+            plusButtonClicked = false;
+            minusButtonClicked = false;
+            multiplyButtonClicked = false;
+            divideButtonClicked = false;
+            modulusButtonClicked = true;
+            powerButtonClicked = false;
+            factorialButtonClicked = false;
+            squareButtonClicked = false;
+            //proButtonClicked = false;
+        }
+
+        private void BtnPower_Click(object sender, RoutedEventArgs e)
+        {
+            total1 = total1 + double.Parse(resultTxtBox.Text);
+            resultTxtBox.Text = "";
+
+            plusButtonClicked = false;
+            minusButtonClicked = false;
+            multiplyButtonClicked = false;
+            divideButtonClicked = false;
+            modulusButtonClicked = false;
+            powerButtonClicked = true;
+            factorialButtonClicked = false;
+            squareButtonClicked = false;
+        }
+
+        private void BtnFactorial_Click(object sender, RoutedEventArgs e)
+        {
+            total1 = total1 + double.Parse(resultTxtBox.Text);
+            resultTxtBox.Text = "";
+
+            plusButtonClicked = false;
+            minusButtonClicked = false;
+            multiplyButtonClicked = false;
+            divideButtonClicked = false;
+            modulusButtonClicked = false;
+            powerButtonClicked = false;
+            factorialButtonClicked = true;
+            squareButtonClicked = false;
+            //proButtonClicked = false;
+        }
+
+        private void BtnSquare_Click(object sender, RoutedEventArgs e)
+        {
+            total1 = total1 + double.Parse(resultTxtBox.Text);
+            resultTxtBox.Text = "";
+
+            plusButtonClicked = false;
+            minusButtonClicked = false;
+            multiplyButtonClicked = false;
+            divideButtonClicked = false;
+            modulusButtonClicked = false;
+            powerButtonClicked = false;
+            factorialButtonClicked = false;
+            squareButtonClicked = true;
+        }
+
+        private void BtnPro_Click(object sender, RoutedEventArgs e)
+        {
+            total1 = 0;
+            total1 = total1 + double.Parse(resultTxtBox.Text);
+            resultTxtBox.Text = "";
+
+           var hexadecimal = int.Parse(total1.ToString(), System.Globalization.NumberStyles.HexNumber).ToString();
+           var binary = Convert.ToString(Convert.ToInt32(total1), 2);
+           var octal = Convert.ToString(Convert.ToInt32(total1), 10);
+           var integer = total1.ToString();
+            programmerTxtBox.Text = $"Integer:{integer} Hexadecimal:{hexadecimal} Binary:{binary} Octal:{octal}";
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ContextMenu cm = this.FindResource("cmButton") as ContextMenu;
+            cm.PlacementTarget = sender as Button;
+            cm.IsOpen = true;
+        }
+        private void BtnPercent_Click(object sender, RoutedEventArgs e)
+        {
+            total1 = total1 + double.Parse(resultTxtBox.Text);
+            resultTxtBox.Text = "";
+            resultTxtBox.Text = total1.ToString("0.0%");
+        }
+
+        private void BtnWeight_Click(object sender, RoutedEventArgs e)
+        {
+            total1 = total1 + double.Parse(resultTxtBox.Text);
+            resultTxtBox.Text = "";
+        }
         private void BtnEquals_Click(object sender, RoutedEventArgs e)
         {
             if (plusButtonClicked == true)
@@ -155,18 +341,339 @@ namespace Calculator
                 resultTxtBox.Text = total2.ToString();
                 total1 = 0;
             }
+            else if(modulusButtonClicked == true)
+            {
+                total2 = total1 % double.Parse(resultTxtBox.Text);
+                resultTxtBox.Text = total2.ToString();
+                total1 = 0;
+            }
+            else if(powerButtonClicked == true)
+            {
+                var num2 = resultTxtBox.Text;
+                total2 = Math.Pow(double.Parse(total1.ToString()), double.Parse(num2.ToString()));
+                resultTxtBox.Text = total2.ToString();
+                total1 = 0;
+            }
+            else if(factorialButtonClicked == true)
+            {
+                long num = 1;
+                for (long i = 1; i <= long.Parse(total1.ToString()); i++)
+                {
+                    num = num * i;
+                }
+                resultTxtBox.Text = num.ToString();
+                total1 = 0;
+            }
+            else if(squareButtonClicked == true)
+            {
+                resultTxtBox.Text = Math.Sqrt(double.Parse(total1.ToString())).ToString();
+                total1 = 0;
+            }
+            //else if (proButtonClicked == true)
+            //{
+            //    //string hex = total1.ToString("X");
+            //    hexTxtBox.Text = int.Parse(total1.ToString(), System.Globalization.NumberStyles.HexNumber).ToString();
+            //    binTxtBox.Text = Convert.ToString(Convert.ToInt32(total1), 2);
+            //    octalTxtBox.Text = Convert.ToString(Convert.ToInt32(total1), 10);
+            //    intTxtBox.Text = total1.ToString();
+            //    total1 = 0;
+            //}
         }
 
         private void BtnClear_Click(object sender, RoutedEventArgs e)
         {
             resultTxtBox.Text = "";
+            //hexTxtBox.Text = "";
+            //binTxtBox.Text = "";
+            //octalTxtBox.Text = "";
+            //intTxtBox.Text = "";
+            //hex.Visibility = Visibility.Hidden;
+            //oct.Visibility = Visibility.Hidden;
+            //bin.Visibility = Visibility.Hidden;
+            //inte.Visibility = Visibility.Hidden;
+            total1 = 0;
         }
 
-        private void btnDecimalPoint_Click(object sender, RoutedEventArgs e)
+        private void BtnDecimalPoint_Click(object sender, RoutedEventArgs e)
         {
-            resultTxtBox.Text = ".";
+            
+            resultTxtBox.Text = resultTxtBox.Text + ".";
         }
 
+        private void WeightComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            double milligram = 0, gram = 0, kilogram = 0, ounce = 0, pound = 0;
+            total1 = 0;
+            ComboBoxItem typeItem = (ComboBoxItem)WeightComboBox.SelectedItem;
+            string value = typeItem.Content.ToString();
+            if (resultTxtBox.Text == "")
+            {
+                LastResultTxtBox.Text = "Please input correct number!";
+                return;
+            }
+            total1 = total1 + double.Parse(resultTxtBox.Text);
+            if(value == "---Choice Origin Unit---")
+            {
+                return;
+            }
+            if (value == "milligrams")
+            {
+                 milligram = double.Parse(total1.ToString());
+                 gram = 0.001 * milligram;
+                 kilogram = 0.000001 * gram;
+                 ounce = 28.3495231 * gram;
+                 pound = 0.45359237 * kilogram;
+            }
+            if (value == "grams")
+            {
+                gram = double.Parse(total1.ToString());
+                milligram = 1000 * gram;
+                kilogram = 0.001 * gram;
+                ounce = 28.3495231 * gram;
+                pound = 0.45359237 * kilogram;
+            }
 
+            if (value == "kilograms")
+            {
+                kilogram = double.Parse(total1.ToString());
+                gram = 1000 * kilogram;
+                milligram = 1000 * gram;
+                ounce = 28.3495231 * gram;
+                pound = 0.45359237 * kilogram;
+            }
+
+            if (value == "ounces")
+            {
+                ounce = double.Parse(total1.ToString());
+                gram = ounce / 28.3495231;
+                milligram = 1000 * gram;
+                kilogram = gram/1000;
+                pound = 0.45359237 * kilogram;
+            }
+            if (value == "pounds")
+            {
+                pound = double.Parse(total1.ToString());
+                kilogram = pound / 0.45359237;
+                gram = kilogram / 1000;
+                ounce = 28.3495231 * gram;
+                milligram = 1000 * gram;
+            }
+            LastResultTxtBox.Text = $" Milligram: {milligram.ToString()} Gram: {gram.ToString()}\n Kilogram: {kilogram.ToString()} Ounce: {ounce.ToString()}\n Pound: {pound.ToString()}";
+        }
+
+        private void Temperature_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            total1 = 0;
+            double celsius = 0, fahrenheit = 0;
+            ComboBoxItem typeItem = (ComboBoxItem)temperatureComboBox.SelectedItem;
+            string value = typeItem.Content.ToString();
+            if (resultTxtBox.Text == "")
+            {
+                LastResultTxtBox.Text = "Please input correct number!";
+                return;
+            }
+            total1 = total1 + double.Parse(resultTxtBox.Text);
+
+            if (value == "---Choice Origin Unit---")
+            {
+                return;
+            }
+            if (value == "Celsius")
+            {
+                celsius = double.Parse(total1.ToString());
+                fahrenheit = (celsius * 9) / 5 + 32;
+            }
+            if (value == "Fahrenheits")
+            {
+                fahrenheit = double.Parse(total1.ToString());
+                celsius = (fahrenheit - 32) * 5 / 9;
+            }
+            temperatureResultTxtBox.Text = $"Celsius:{celsius.ToString()} Fahrenheits:{fahrenheit.ToString()}";  
+        }
+
+        private void length_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            total1 = 0;
+            double millimetres = 0, centimeters = 0, meters = 0, kilometers = 0, inches = 0, feet = 0;
+             ComboBoxItem typeItem = (ComboBoxItem)lengthComboBox.SelectedItem;
+            string value = typeItem.Content.ToString();
+            if (resultTxtBox.Text == "")
+            {
+                LastResultTxtBox.Text = "Please input correct number!";
+                return;
+            }
+            total1 = total1 + double.Parse(resultTxtBox.Text);
+
+            if (value == "---Choice Origin Unit---")
+            {
+                return;
+            }
+            if (value == "millimetres")
+            {
+                millimetres = double.Parse(total1.ToString());
+                centimeters = 0.1 * millimetres;
+                meters = 0.001 * centimeters;
+                kilometers = 0.001 * meters;
+                inches = 2.54 * centimeters;
+                feet = 30.48 * centimeters;
+            }
+            if (value == "centimeters")
+            {
+                centimeters = double.Parse(total1.ToString());
+                millimetres = 10 * centimeters;
+                meters = 0.001 * centimeters;
+                kilometers = 0.001 * meters;
+                inches = 2.54 * centimeters;
+                feet = 30.48 * centimeters;
+            }
+            if (value == "meters")
+            {
+                meters = double.Parse(total1.ToString());
+                centimeters = 100 * meters;
+                millimetres = 10 * centimeters;
+                kilometers = 0.001 * meters;
+                inches = 2.54 * centimeters;
+                feet = 30.48 * centimeters;
+            }
+
+            if (value == "kilometers")
+            {
+                kilometers = double.Parse(total1.ToString());
+                meters = 1000 * kilometers;
+                centimeters = 100 * meters;
+                millimetres = 10 * centimeters;
+                inches = 2.54 * centimeters;
+                feet = 30.48 * centimeters;
+            }
+            if (value == "inches")
+            {
+                inches = double.Parse(total1.ToString());
+                centimeters = inches / 2.54;
+                meters = 0.01 * centimeters;
+                kilometers = 0.001 * meters;
+                millimetres = 10 * centimeters;
+                feet = 30.48 * centimeters;
+            }
+
+            if (value == "feet")
+            {
+                feet = double.Parse(total1.ToString());
+                centimeters = feet / 30.48;
+                meters = 0.01 * centimeters;
+                kilometers = 0.001 * meters;
+                millimetres = 10 * centimeters;
+                inches = 2.54 * centimeters;
+            }
+         lengthResultTxtBox.Text = $"Millimetres:{millimetres.ToString()} Centimeters:{centimeters.ToString()}\n Meters:{meters.ToString()} Kilometers:{kilometers.ToString()}\n Inches:{inches.ToString()} Feet:{feet.ToString()}";
+        }
+
+        private void fileSize_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            total1 = 0;
+            double bytes = 0, kilobytes = 0, megabytes = 0, gigabytes = 0, terabytes = 0;
+            ComboBoxItem typeItem = (ComboBoxItem)fileSizeComboBox.SelectedItem;
+            string value = typeItem.Content.ToString();
+            if (resultTxtBox.Text == "")
+            {
+                LastResultTxtBox.Text = "Please input correct number!";
+                return;
+            }
+            total1 = total1 + double.Parse(resultTxtBox.Text);
+
+            if (value == "---Choice Origin Unit---")
+            {
+                return;
+            }
+            if (value == "bytes")
+            {
+                bytes = double.Parse(total1.ToString());
+                kilobytes = bytes / 1024;
+                megabytes = kilobytes / 1024;
+                gigabytes = megabytes / 1024;
+                terabytes = gigabytes / 1024;
+            }
+
+            if (value == "kilobytes")
+            {
+                kilobytes = double.Parse(total1.ToString());
+                bytes = kilobytes * 1024;
+                megabytes = kilobytes / 1024;
+                gigabytes = megabytes / 1024;
+                terabytes = gigabytes / 1024;
+            }
+
+            if (value == "megabytes")
+            {
+                megabytes = double.Parse(total1.ToString());
+                kilobytes = megabytes * 1024;
+                bytes = kilobytes * 1024;
+                gigabytes = megabytes / 1024;
+                terabytes = gigabytes / 1024;
+            }
+
+            if (value == "gigabytes")
+            {
+                gigabytes = double.Parse(total1.ToString());
+                megabytes = gigabytes * 1024;
+                kilobytes = megabytes * 1024;
+                bytes = kilobytes * 1024;
+                terabytes = gigabytes / 1024;
+            }
+
+
+            if (value == "terabytes")
+            {
+                terabytes = double.Parse(total1.ToString());
+                gigabytes = terabytes * 1024;
+                megabytes = gigabytes * 1024;
+                kilobytes = megabytes * 1024;
+                bytes = kilobytes * 1024;
+            }
+            fileSizeResultTxtBox.Text = $"Bytes:{bytes.ToString()} Kilobytes:{kilobytes.ToString()}\n Megabytes:{megabytes.ToString()} Gigabytes:{gigabytes.ToString()}\n Terabytes:{terabytes.ToString()}";
+        }
+
+        private void time_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            total1 = 0;
+            double hours = 0, minutes = 0, seconds = 0;
+            ComboBoxItem typeItem = (ComboBoxItem)timeComboBox.SelectedItem;
+            string value = typeItem.Content.ToString();
+            if (resultTxtBox.Text == "")
+            {
+                LastResultTxtBox.Text = "Please input correct number!";
+                return;
+            }
+            total1 = total1 + double.Parse(resultTxtBox.Text);
+
+            if (value == "---Choice Origin Unit---")
+            {
+                return;
+            }
+            if (value == "hours")
+            {
+                hours = double.Parse(total1.ToString());
+                minutes = 60 * hours;
+                seconds = 60 * minutes;
+            }
+            if (value == "minutes")
+            {
+                minutes = double.Parse(total1.ToString());
+                hours = minutes / 60;
+                seconds = 60 * minutes;
+            }
+            if (value == "seconds")
+            {
+                seconds = double.Parse(total1.ToString());
+                minutes = seconds / 60;
+                hours = minutes / 60;
+            }
+            fileSizeResultTxtBox.Text = $"Hours:{hours.ToString()} Minutes:{minutes.ToString()}\n Seconds:{seconds.ToString()}";
+        }
+
+        private void Backspace_Click(object sender, RoutedEventArgs e)
+        {
+            int i = resultTxtBox.Text.Length;
+            resultTxtBox.Text = resultTxtBox.Text.Substring(0, i - 1);
+        }
     }
 }
