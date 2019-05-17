@@ -10,20 +10,20 @@
 
         <ContextMenu x:Key="cmButton">
             <MenuItem Header="Standard" Click="Standard_Click" />
-            <MenuItem Header="Programmer" Click="BtnPro_Click" />
+            <MenuItem Header="Programmer" Click="Programmer_Click" />
             <MenuItem Header="Weight"  Click="Weight_Click" />
             <MenuItem Header="Temperature" Click="Temperature_Click"/>
             <Separator />
-            <MenuItem Header="Length"/>
-            <MenuItem Header="FileSize"/>
-            <MenuItem Header="Time"/>
+            <MenuItem Header="Length" Click="Length_Click"/>
+            <MenuItem Header="FileSize" Click="FileSize_Click"/>
+            <MenuItem Header="Time" Click="Time_Click"/>
         </ContextMenu>
     </Window.Resources>
 
 
     <Grid Margin="0,0,3.6,-0.6" >
         <TextBox Height="72" Name="resultTxtBox" FontSize="56" Text="" VerticalAlignment="Top"  Grid.Row="1" Grid.ColumnSpan="5" />
-        <Grid x:Name="Standard" Background="Transparent"  Visibility="Hidden" >
+        <Grid x:Name="Standard" Background="Transparent">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
@@ -44,7 +44,7 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Button Content="♡≡♡" Height="25" Click="Button_Click"  Background="Transparent"  Margin="0,0,65.4,46.6" VerticalAlignment="Bottom"/>
+            <Button Content="♡≡♡" Height="25" Click="Button_Click"  Background="Transparent"  Margin="0,0,47,46.6" VerticalAlignment="Bottom"/>
             <Button Content="=" Name="btnEquals"  Background="#FFFF550D" FontSize="56" Click="BtnEquals_Click" Grid.Column="4" Grid.Row="8"/>
             <Button Content="-" Name="btnSubtract" FontSize="56"  Click="BtnSubtract_Click" Grid.Column="4" Grid.Row="7" />
             <Button Content="0" Name="btn0" FontSize="56" Click="Btn0_Click" Grid.Column="2" Grid.Row="8"/>
@@ -67,14 +67,54 @@
             <Button Content="Fac" FontSize="28" Click="BtnFactorial_Click" Grid.Row="3" Grid.Column="3"/>
             <Button Content="✓" FontSize="28" Click="BtnSquare_Click" Grid.Row="3" Grid.Column="4"/>
             <Button Content="CE"  FontSize="28" Background="#FF0008FF" Click="BtnClear_Click" Grid.Row="4" Grid.Column="2"  />
-            <Button Content="-" Name="Negative" FontSize="56"  Grid.Column="1" Grid.Row="8"/>
+            <Button Content="neg-" Name="Negative" FontSize="26" Click="BtnNegative_Click" Grid.Column="1" Grid.Row="8"/>
             <Button Content="◄■"  FontSize="28" Click="Backspace_Click" Grid.Row="4" Grid.Column="3" />
 
-            <TextBlock  Name="programmerTxtBox" Grid.Row="1" FontSize="26" Text="" Grid.ColumnSpan="5" Margin="10,0.4,10.4,0.2" />
+            <TextBlock  Name="StandardResultTxtBox" Grid.Row="1" FontSize="26" Text="" Grid.ColumnSpan="5" Margin="10,0.4,10.4,0.2" />
             <Button Content="%" Name="Percent" Click="BtnPercent_Click" FontSize="26"  Grid.Column="1" Grid.Row="4" />
         </Grid>
+
+        <!--Programmer-->
+        <Grid x:Name="Programmer" Background="Transparent" Visibility="Hidden">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Button Content="♡≡♡" Height="25" Click="Button_Click"  Background="Transparent"  Margin="0,0,65.4,46.6" VerticalAlignment="Bottom"/>
+            <Button Content="CE"  FontSize="28" Background="#FF0008FF" Click="BtnClear_Click" Grid.Row="4" Grid.Column="2"/>
+            <Button Content="0" FontSize="56" Click="Btn0_Click" Grid.Column="2" Grid.Row="8"/>
+            <Button Content="3" FontSize="56" Click="Btn3_Click" Grid.Column="3" Grid.Row="7"/>
+            <Button Content="1" FontSize="56" Click="Btn1_Click" Grid.Row="7" Grid.Column="1"/>
+            <Button Content="2"  FontSize="56" Click="Btn2_Click" Grid.Column="2" Grid.Row="7"/>
+            <Button Content="6" Click="Button9_Click" FontSize="56" Grid.Column="3" Grid.Row="6" />
+            <Button Content="4"  FontSize="56" Click="Btn4_Click" Grid.Row="6" Grid.Column="1"/>
+            <Button Content="5"  FontSize="56" Click="Btn5_Click" Grid.Column="2" Grid.Row="6" />
+            <Button Content="9"  FontSize="56" Click="Btn9_Click" Grid.Column="3" Grid.Row="5"/>
+            <Button Content="7" FontSize="56" Click="Btn7_Click" Grid.Row="5" Grid.Column="1"/>
+            <Button Content="8" FontSize="56" Click="Btn8_Click" Grid.Column="2" Grid.Row="5" />
+            <Button Content="." FontSize="56" Click="BtnDecimalPoint_Click" Grid.Column="3" Grid.Row="8" />
+            <Button Content="◄■"  FontSize="28" Click="Backspace_Click" Grid.Row="4" Grid.Column="3" />
+            <Button Content="Start Calculator" FontSize="26" Click="BtnProgrammer_Click" Grid.Row="0" Grid.ColumnSpan="5" Margin="110,73,0,10.2" Grid.RowSpan="2" HorizontalAlignment="Left" Width="355" />
+            <TextBlock Height="130" Name="ProgrammerResultTxtBox" FontSize="20" Text="" VerticalAlignment="Top"  Grid.Row="2" Grid.ColumnSpan="5" Margin="10,7.8,-0.6,0" Grid.RowSpan="2" />
+        </Grid>
+
         <!--Weight-->
-        <Grid x:Name="Weight" Background="Transparent">
+        <Grid x:Name="Weight" Background="Transparent" Visibility="Hidden">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
@@ -109,9 +149,9 @@
             <Button Content="." FontSize="56" Click="BtnDecimalPoint_Click" Grid.Column="3" Grid.Row="8" />
             <Button Content="◄■"  FontSize="28" Click="Backspace_Click" Grid.Row="4" Grid.Column="3" />
             <TextBlock Height="130" Name="LastResultTxtBox" FontSize="20" Text="" VerticalAlignment="Top"  Grid.Row="2" Grid.ColumnSpan="5" Margin="10,7.8,-0.6,0" Grid.RowSpan="2" />
-            <Label Name ="Form" Content="Form:" Grid.Column="0" Grid.Row="1" FontSize="26" HorizontalAlignment="Left"  Width="80" ></Label>
+            <Label Name ="Form" Content="From:" Grid.Column="0" Grid.Row="1" FontSize="26" HorizontalAlignment="Left"  Width="80" ></Label>
             <ComboBox Name ="WeightComboBox" Grid.ColumnSpan="5" HorizontalAlignment="Left" Margin="110,11.4,0,0" Grid.Row="1" VerticalAlignment="Top" Width="335" Height="34" RenderTransformOrigin="0.5,0.5" SelectionChanged="WeightComboBox_SelectionChanged">
-                <ComboBoxItem >---Choice Origin Unit---</ComboBoxItem>
+                <ComboBoxItem IsSelected="True">---Choice Origin Unit---</ComboBoxItem>
                 <ComboBoxItem>milligrams</ComboBoxItem>
                 <ComboBoxItem>grams</ComboBoxItem>
                 <ComboBoxItem>kilograms</ComboBoxItem>
@@ -121,7 +161,7 @@
         </Grid>
 
         <!--Temperature-->
-        <Grid x:Name="Temperature" Background="Transparent">
+        <Grid x:Name="Temperature" Background="Transparent" Visibility="Hidden">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
@@ -156,16 +196,16 @@
             <Button Content="." FontSize="56" Click="BtnDecimalPoint_Click" Grid.Column="3" Grid.Row="8" />
             <Button Content="◄■"  FontSize="28" Click="Backspace_Click" Grid.Row="4" Grid.Column="3" />
             <TextBlock Height="135" Name="temperatureResultTxtBox" FontSize="20" Text="" VerticalAlignment="Top"  Grid.Row="2" Grid.ColumnSpan="5" Margin="10,7.8,-0.6,0" Grid.RowSpan="2" />
-            <Label Name ="temperatureForm" Content="Form:" Grid.Column="0" Grid.Row="1" FontSize="26" HorizontalAlignment="Left"  Width="80" ></Label>
+            <Label Name ="temperatureForm" Content="From:" Grid.Column="0" Grid.Row="1" FontSize="26" HorizontalAlignment="Left"  Width="80" ></Label>
             <ComboBox Name ="temperatureComboBox" Grid.ColumnSpan="5" HorizontalAlignment="Left" Margin="110,11.4,0,0" Grid.Row="1" VerticalAlignment="Top" Width="335" Height="34" RenderTransformOrigin="0.5,0.5" SelectionChanged="Temperature_SelectionChanged">
-                <ComboBoxItem>---Choice Origin Unit---</ComboBoxItem>
+                <ComboBoxItem IsSelected="True">---Choice Origin Unit---</ComboBoxItem>
                 <ComboBoxItem>Celsius</ComboBoxItem>
                 <ComboBoxItem>Fahrenheits</ComboBoxItem>
             </ComboBox>
         </Grid>
 
         <!--length-->
-        <Grid x:Name="length" Background="Transparent">
+        <Grid x:Name="length" Background="Transparent" Visibility="Hidden">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
@@ -200,9 +240,9 @@
             <Button Content="." FontSize="56" Click="BtnDecimalPoint_Click" Grid.Column="3" Grid.Row="8" />
             <Button Content="◄■"  FontSize="28" Click="Backspace_Click" Grid.Row="4" Grid.Column="3" />
             <TextBlock Height="140" Name="lengthResultTxtBox" FontSize="20" Text="" VerticalAlignment="Top" Grid.Row="2" Grid.ColumnSpan="5" Margin="10,7.8,-0.6,0" Grid.RowSpan="2" />
-            <Label Name ="lengthForm" Content="Form:" Grid.Column="0" Grid.Row="1" FontSize="26" HorizontalAlignment="Left"  Width="80" ></Label>
-            <ComboBox Name ="lengthComboBox" Grid.ColumnSpan="5" HorizontalAlignment="Left" Margin="110,11.4,0,0" Grid.Row="1" VerticalAlignment="Top" Width="335" Height="34" RenderTransformOrigin="0.5,0.5" SelectionChanged="length_SelectionChanged">
-                <ComboBoxItem>---Choice Origin Unit---</ComboBoxItem>
+            <Label Name ="lengthForm" Content="From:" Grid.Column="0" Grid.Row="1" FontSize="26" HorizontalAlignment="Left"  Width="80" ></Label>
+            <ComboBox Name ="lengthComboBox" Grid.ColumnSpan="5" HorizontalAlignment="Left" Margin="110,11.4,0,0" Grid.Row="1" VerticalAlignment="Top" Width="335" Height="34" RenderTransformOrigin="0.5,0.5" SelectionChanged="Length_SelectionChanged">
+                <ComboBoxItem IsSelected="True">---Choice Origin Unit---</ComboBoxItem>
                 <ComboBoxItem>millimetres</ComboBoxItem>
                 <ComboBoxItem>centimeters</ComboBoxItem>
                 <ComboBoxItem>meters</ComboBoxItem>
@@ -213,7 +253,7 @@
         </Grid>
 
         <!--fileSize-->
-        <Grid x:Name="fileSize" Background="Transparent">
+        <Grid x:Name="fileSize" Background="Transparent" Visibility="Hidden">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
@@ -248,9 +288,9 @@
             <Button Content="." FontSize="56" Click="BtnDecimalPoint_Click" Grid.Column="3" Grid.Row="8" />
             <Button Content="◄■"  FontSize="28" Click="Backspace_Click" Grid.Row="4" Grid.Column="3" />
             <TextBlock Height="130" Name="fileSizeResultTxtBox" FontSize="20" Text="" VerticalAlignment="Top" Grid.Row="2" Grid.ColumnSpan="5" Margin="10,7.8,-0.6,0" Grid.RowSpan="2" />
-            <Label Name ="fileSizeForm" Content="Form:" Grid.Column="0" Grid.Row="1" FontSize="26" HorizontalAlignment="Left"  Width="80" ></Label>
-            <ComboBox Name ="fileSizeComboBox" Grid.ColumnSpan="5" HorizontalAlignment="Left" Margin="110,11.4,0,0" Grid.Row="1" VerticalAlignment="Top" Width="335" Height="34" RenderTransformOrigin="0.5,0.5" SelectionChanged="fileSize_SelectionChanged">
-                <ComboBoxItem>---Choice Origin Unit---</ComboBoxItem>
+            <Label Name ="fileSizeForm" Content="From:" Grid.Column="0" Grid.Row="1" FontSize="26" HorizontalAlignment="Left"  Width="80" ></Label>
+            <ComboBox Name ="fileSizeComboBox" Grid.ColumnSpan="5" HorizontalAlignment="Left" Margin="110,11.4,0,0" Grid.Row="1" VerticalAlignment="Top" Width="335" Height="34" RenderTransformOrigin="0.5,0.5" SelectionChanged="FileSize_SelectionChanged">
+                <ComboBoxItem IsSelected="True">---Choice Origin Unit---</ComboBoxItem>
                 <ComboBoxItem>bytes</ComboBoxItem>
                 <ComboBoxItem>kilobytes</ComboBoxItem>
                 <ComboBoxItem>megabytes</ComboBoxItem>
@@ -260,7 +300,7 @@
         </Grid>
 
         <!--time-->
-        <Grid x:Name="time" Background="Transparent">
+        <Grid x:Name="time" Background="Transparent" Visibility="Hidden">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
@@ -295,9 +335,9 @@
             <Button Content="." FontSize="56" Click="BtnDecimalPoint_Click" Grid.Column="3" Grid.Row="8" />
             <Button Content="◄■"  FontSize="28" Click="Backspace_Click" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="3" Height="74" Margin="109.2,74.2,109.4,0" Grid.RowSpan="3" VerticalAlignment="Top" />
             <TextBlock Height="130" Name="timeResultTxtBox" FontSize="20" Text="" VerticalAlignment="Top" Grid.Row="2" Grid.ColumnSpan="5" Margin="10,7.8,-0.6,0" Grid.RowSpan="2" />
-            <Label Name ="timeForm" Content="Form:" Grid.Column="0" Grid.Row="1" FontSize="26" HorizontalAlignment="Left"  Width="80" ></Label>
-            <ComboBox Name ="timeComboBox" Grid.ColumnSpan="5" HorizontalAlignment="Left" Margin="110,11.4,0,0" Grid.Row="1" VerticalAlignment="Top" Width="335" Height="34" RenderTransformOrigin="0.5,0.5" SelectionChanged="time_SelectionChanged">
-                <ComboBoxItem>---Choice Origin Unit---</ComboBoxItem>
+            <Label Name ="timeForm" Content="From:" Grid.Column="0" Grid.Row="1" FontSize="26" HorizontalAlignment="Left"  Width="80" ></Label>
+            <ComboBox Name ="timeComboBox" Grid.ColumnSpan="5" HorizontalAlignment="Left" Margin="110,11.4,0,0" Grid.Row="1" VerticalAlignment="Top" Width="335" Height="34" RenderTransformOrigin="0.5,0.5" SelectionChanged="Time_SelectionChanged">
+                <ComboBoxItem IsSelected="True">---Choice Origin Unit---</ComboBoxItem>
                 <ComboBoxItem>hours</ComboBoxItem>
                 <ComboBoxItem>minutes</ComboBoxItem>
                 <ComboBoxItem>seconds</ComboBoxItem>

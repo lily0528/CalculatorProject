@@ -35,6 +35,7 @@ namespace Calculator
             this.length.Visibility = Visibility.Collapsed;
             this.fileSize.Visibility = Visibility.Collapsed;
             this.time.Visibility = Visibility.Collapsed;
+            this.Programmer.Visibility = Visibility.Collapsed;
         }
 
         private void Standard_Click(object sender, RoutedEventArgs e)
@@ -45,8 +46,19 @@ namespace Calculator
             this.length.Visibility = Visibility.Collapsed;
             this.fileSize.Visibility = Visibility.Collapsed;
             this.time.Visibility = Visibility.Collapsed;
+            this.Programmer.Visibility = Visibility.Collapsed;
         }
 
+        private void Programmer_Click(object sender, RoutedEventArgs e)
+        {
+            this.Standard.Visibility = Visibility.Collapsed;
+            this.Weight.Visibility = Visibility.Collapsed;
+            this.Temperature.Visibility = Visibility.Collapsed;
+            this.length.Visibility = Visibility.Collapsed;
+            this.fileSize.Visibility = Visibility.Collapsed;
+            this.time.Visibility = Visibility.Collapsed;
+            this.Programmer.Visibility = Visibility.Visible;
+        }
         private void Weight_Click(object sender, RoutedEventArgs e)
         {
             this.Standard.Visibility = Visibility.Collapsed;
@@ -55,6 +67,7 @@ namespace Calculator
             this.length.Visibility = Visibility.Collapsed;
             this.fileSize.Visibility = Visibility.Collapsed;
             this.time.Visibility = Visibility.Collapsed;
+            this.Programmer.Visibility = Visibility.Collapsed;
         }
 
         private void Temperature_Click(object sender, RoutedEventArgs e)
@@ -65,6 +78,7 @@ namespace Calculator
             this.length.Visibility = Visibility.Collapsed;
             this.fileSize.Visibility = Visibility.Collapsed;
             this.time.Visibility = Visibility.Collapsed;
+            this.Programmer.Visibility = Visibility.Collapsed;
         }
 
         private void Length_Click(object sender, RoutedEventArgs e)
@@ -75,9 +89,10 @@ namespace Calculator
             this.length.Visibility = Visibility.Visible;
             this.fileSize.Visibility = Visibility.Collapsed;
             this.time.Visibility = Visibility.Collapsed;
+            this.Programmer.Visibility = Visibility.Collapsed;
         }
 
-        private void fileSize_Click(object sender, RoutedEventArgs e)
+        private void FileSize_Click(object sender, RoutedEventArgs e)
         {
             this.Standard.Visibility = Visibility.Collapsed;
             this.Weight.Visibility = Visibility.Collapsed;
@@ -85,9 +100,10 @@ namespace Calculator
             this.length.Visibility = Visibility.Collapsed;
             this.fileSize.Visibility = Visibility.Visible;
             this.time.Visibility = Visibility.Collapsed;
+            this.Programmer.Visibility = Visibility.Collapsed;
         }
 
-        private void time_Click(object sender, RoutedEventArgs e)
+        private void Time_Click(object sender, RoutedEventArgs e)
         {
             this.Standard.Visibility = Visibility.Collapsed;
             this.Weight.Visibility = Visibility.Collapsed;
@@ -95,6 +111,7 @@ namespace Calculator
             this.length.Visibility = Visibility.Collapsed;
             this.fileSize.Visibility = Visibility.Collapsed;
             this.time.Visibility = Visibility.Visible;
+            this.Programmer.Visibility = Visibility.Collapsed;
         }
 
         private double total1 = 0;
@@ -158,6 +175,10 @@ namespace Calculator
         private void Btn9_Click(object sender, RoutedEventArgs e)
         {
             resultTxtBox.Text = resultTxtBox.Text + "9";
+        }
+        private void BtnNegative_Click(object sender, RoutedEventArgs e)
+        {
+            resultTxtBox.Text = resultTxtBox.Text + "-";
         }
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
@@ -285,9 +306,14 @@ namespace Calculator
             squareButtonClicked = true;
         }
 
-        private void BtnPro_Click(object sender, RoutedEventArgs e)
+        private void BtnProgrammer_Click(object sender, RoutedEventArgs e)
         {
             total1 = 0;
+            if (resultTxtBox.Text == "")
+            {
+                LastResultTxtBox.Text = "Please input correct number!";
+                return;
+            }
             total1 = total1 + double.Parse(resultTxtBox.Text);
             resultTxtBox.Text = "";
 
@@ -295,7 +321,7 @@ namespace Calculator
            var binary = Convert.ToString(Convert.ToInt32(total1), 2);
            var octal = Convert.ToString(Convert.ToInt32(total1), 10);
            var integer = total1.ToString();
-            programmerTxtBox.Text = $"Integer:{integer} Hexadecimal:{hexadecimal} Binary:{binary} Octal:{octal}";
+            ProgrammerResultTxtBox.Text = $"Integer:{integer} Hexadecimal:{hexadecimal} Binary:{binary} Octal:{octal}";
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -369,28 +395,11 @@ namespace Calculator
                 resultTxtBox.Text = Math.Sqrt(double.Parse(total1.ToString())).ToString();
                 total1 = 0;
             }
-            //else if (proButtonClicked == true)
-            //{
-            //    //string hex = total1.ToString("X");
-            //    hexTxtBox.Text = int.Parse(total1.ToString(), System.Globalization.NumberStyles.HexNumber).ToString();
-            //    binTxtBox.Text = Convert.ToString(Convert.ToInt32(total1), 2);
-            //    octalTxtBox.Text = Convert.ToString(Convert.ToInt32(total1), 10);
-            //    intTxtBox.Text = total1.ToString();
-            //    total1 = 0;
-            //}
         }
 
         private void BtnClear_Click(object sender, RoutedEventArgs e)
         {
             resultTxtBox.Text = "";
-            //hexTxtBox.Text = "";
-            //binTxtBox.Text = "";
-            //octalTxtBox.Text = "";
-            //intTxtBox.Text = "";
-            //hex.Visibility = Visibility.Hidden;
-            //oct.Visibility = Visibility.Hidden;
-            //bin.Visibility = Visibility.Hidden;
-            //inte.Visibility = Visibility.Hidden;
             total1 = 0;
         }
 
@@ -405,6 +414,10 @@ namespace Calculator
             double milligram = 0, gram = 0, kilogram = 0, ounce = 0, pound = 0;
             total1 = 0;
             ComboBoxItem typeItem = (ComboBoxItem)WeightComboBox.SelectedItem;
+            if (typeItem.Content == null)
+            {
+                return;
+            }
             string value = typeItem.Content.ToString();
             if (resultTxtBox.Text == "")
             {
@@ -466,6 +479,10 @@ namespace Calculator
             total1 = 0;
             double celsius = 0, fahrenheit = 0;
             ComboBoxItem typeItem = (ComboBoxItem)temperatureComboBox.SelectedItem;
+            if (typeItem.Content == null)
+            {
+                return;
+            }
             string value = typeItem.Content.ToString();
             if (resultTxtBox.Text == "")
             {
@@ -491,11 +508,15 @@ namespace Calculator
             temperatureResultTxtBox.Text = $"Celsius:{celsius.ToString()} Fahrenheits:{fahrenheit.ToString()}";  
         }
 
-        private void length_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Length_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             total1 = 0;
             double millimetres = 0, centimeters = 0, meters = 0, kilometers = 0, inches = 0, feet = 0;
              ComboBoxItem typeItem = (ComboBoxItem)lengthComboBox.SelectedItem;
+            if (typeItem.Content == null)
+            {
+                return;
+            }
             string value = typeItem.Content.ToString();
             if (resultTxtBox.Text == "")
             {
@@ -564,14 +585,18 @@ namespace Calculator
                 millimetres = 10 * centimeters;
                 inches = 2.54 * centimeters;
             }
-         lengthResultTxtBox.Text = $"Millimetres:{millimetres.ToString()} Centimeters:{centimeters.ToString()}\n Meters:{meters.ToString()} Kilometers:{kilometers.ToString()}\n Inches:{inches.ToString()} Feet:{feet.ToString()}";
+         lengthResultTxtBox.Text = $"Millimetres:{millimetres.ToString("G")} Centimeters:{centimeters.ToString("G")}\n Meters:{meters.ToString("G")} Kilometers:{kilometers.ToString("G")}\n Inches:{inches.ToString("G")} Feet:{feet.ToString("G")}";
         }
 
-        private void fileSize_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void FileSize_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             total1 = 0;
             double bytes = 0, kilobytes = 0, megabytes = 0, gigabytes = 0, terabytes = 0;
             ComboBoxItem typeItem = (ComboBoxItem)fileSizeComboBox.SelectedItem;
+            if (typeItem.Content == null)
+            {
+                return;
+            }
             string value = typeItem.Content.ToString();
             if (resultTxtBox.Text == "")
             {
@@ -632,12 +657,16 @@ namespace Calculator
             fileSizeResultTxtBox.Text = $"Bytes:{bytes.ToString()} Kilobytes:{kilobytes.ToString()}\n Megabytes:{megabytes.ToString()} Gigabytes:{gigabytes.ToString()}\n Terabytes:{terabytes.ToString()}";
         }
 
-        private void time_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Time_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             total1 = 0;
             double hours = 0, minutes = 0, seconds = 0;
             ComboBoxItem typeItem = (ComboBoxItem)timeComboBox.SelectedItem;
-            string value = typeItem.Content.ToString();
+            if(typeItem.Content == null)
+            {
+                return;
+            }
+             string value = typeItem.Content.ToString();
             if (resultTxtBox.Text == "")
             {
                 LastResultTxtBox.Text = "Please input correct number!";
@@ -667,7 +696,7 @@ namespace Calculator
                 minutes = seconds / 60;
                 hours = minutes / 60;
             }
-            fileSizeResultTxtBox.Text = $"Hours:{hours.ToString()} Minutes:{minutes.ToString()}\n Seconds:{seconds.ToString()}";
+            timeResultTxtBox.Text = $"Hours:{hours.ToString()} Minutes:{minutes.ToString()}\n Seconds:{seconds.ToString()}";
         }
 
         private void Backspace_Click(object sender, RoutedEventArgs e)
@@ -675,5 +704,7 @@ namespace Calculator
             int i = resultTxtBox.Text.Length;
             resultTxtBox.Text = resultTxtBox.Text.Substring(0, i - 1);
         }
+
+
     }
 }
