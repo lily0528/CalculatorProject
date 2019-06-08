@@ -22,7 +22,7 @@
 
 
     <Grid Margin="0,0,3.6,-0.6" >
-        <TextBox Height="72" Name="resultTxtBox" FontSize="56" Text="" VerticalAlignment="Top"  Grid.Row="1" Grid.ColumnSpan="5" />
+        <TextBox Height="55" Name="resultTxtBox" FontSize="30" VerticalAlignment="Top" Margin="0,30,0,0" />
         <Grid x:Name="Standard" Background="Transparent">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
@@ -44,7 +44,8 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Button Content="♡≡♡" Height="25" Click="Button_Click"  Background="Transparent"  Margin="0,0,47,46.6" VerticalAlignment="Bottom"/>
+            <Button Content="♡≡♡" Height="25" Click="Button_Click"  Background="Transparent" BorderThickness="0" Margin="0,0,47,46.6" VerticalAlignment="Bottom"/>
+
             <Button Content="=" Name="btnEquals"  Background="#FFFF550D" FontSize="56" Click="BtnEquals_Click" Grid.Column="4" Grid.Row="8"/>
             <Button Content="-" Name="btnSubtract" FontSize="56"  Click="BtnSubtract_Click" Grid.Column="4" Grid.Row="7" />
             <Button Content="0" Name="btn0" FontSize="56" Click="Btn0_Click" Grid.Column="2" Grid.Row="8"/>
@@ -66,12 +67,13 @@
             <Button Content="^" FontSize="28" Click="BtnPower_Click" Grid.Row="3" Grid.Column="2"/>
             <Button Content="Fac" FontSize="28" Click="BtnFactorial_Click" Grid.Row="3" Grid.Column="3"/>
             <Button Content="✓" FontSize="28" Click="BtnSquare_Click" Grid.Row="3" Grid.Column="4"/>
-            <Button Content="CE"  FontSize="28" Background="#FF0008FF" Click="BtnClear_Click" Grid.Row="4" Grid.Column="2"  />
+            <Button Content="CE"  FontSize="28" Click="BtnClear_Click" Grid.Row="4" Grid.Column="2"  />
             <Button Content="neg-" Name="Negative" FontSize="26" Click="BtnNegative_Click" Grid.Column="1" Grid.Row="8"/>
             <Button Content="◄■"  FontSize="28" Click="Backspace_Click" Grid.Row="4" Grid.Column="3" />
 
             <TextBlock  Name="StandardResultTxtBox" Grid.Row="1" FontSize="26" Text="" Grid.ColumnSpan="5" Margin="10,0.4,10.4,0.2" />
             <Button Content="%" Name="Percent" Click="BtnPercent_Click" FontSize="26"  Grid.Column="1" Grid.Row="4" />
+            <Label Content="Standard" HorizontalAlignment="Left" Margin="50,4,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="85"/>
         </Grid>
 
         <!--Programmer-->
@@ -95,8 +97,8 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Button Content="♡≡♡" Height="25" Click="Button_Click"  Background="Transparent"  Margin="0,0,65.4,46.6" VerticalAlignment="Bottom"/>
-            <Button Content="CE"  FontSize="28" Background="#FF0008FF" Click="BtnClear_Click" Grid.Row="4" Grid.Column="2"/>
+            <Button Content="♡≡♡" Height="25" Click="Button_Click"  BorderThickness="0" Background="Transparent"  Margin="0,0,65.4,46.6" VerticalAlignment="Bottom"/>
+            <Button Content="CE"  FontSize="28" Click="BtnClear_Click" Grid.Row="4" Grid.Column="2"/>
             <Button Content="0" FontSize="56" Click="Btn0_Click" Grid.Column="2" Grid.Row="8"/>
             <Button Content="3" FontSize="56" Click="Btn3_Click" Grid.Column="3" Grid.Row="7"/>
             <Button Content="1" FontSize="56" Click="Btn1_Click" Grid.Row="7" Grid.Column="1"/>
@@ -109,8 +111,9 @@
             <Button Content="8" FontSize="56" Click="Btn8_Click" Grid.Column="2" Grid.Row="5" />
             <Button Content="." FontSize="56" Click="BtnDecimalPoint_Click" Grid.Column="3" Grid.Row="8" />
             <Button Content="◄■"  FontSize="28" Click="Backspace_Click" Grid.Row="4" Grid.Column="3" />
-            <Button Content="Start Calculator" FontSize="26" Click="BtnProgrammer_Click" Grid.Row="0" Grid.ColumnSpan="5" Margin="110,73,0,10.2" Grid.RowSpan="2" HorizontalAlignment="Left" Width="355" />
+            <Button Content="Start Calculator" FontSize="26" Click="BtnProgrammer_Click" Grid.Row="1" Grid.ColumnSpan="5" Margin="110,9.4,0,0.2" HorizontalAlignment="Left" Width="355" />
             <TextBlock Height="130" Name="ProgrammerResultTxtBox" FontSize="20" Text="" VerticalAlignment="Top"  Grid.Row="2" Grid.ColumnSpan="5" Margin="10,7.8,-0.6,0" Grid.RowSpan="2" />
+            <Label Content="Programmer" HorizontalAlignment="Left" Margin="50,4,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="85"/>
         </Grid>
 
         <!--Weight-->
@@ -134,8 +137,8 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Button Content="♡≡♡" Height="25" Click="Button_Click"  Background="Transparent"  Margin="0,0,65.4,46.6" VerticalAlignment="Bottom"/>
-            <Button Content="CE"  FontSize="28" Background="#FF0008FF" Click="BtnClear_Click" Grid.Row="4" Grid.Column="2"/>
+            <Button Content="♡≡♡" Height="25" Click="Button_Click" BorderThickness="0" Background="Transparent"  Margin="0,0,65.4,46.6" VerticalAlignment="Bottom"/>
+            <Button Content="CE"  FontSize="28" Click="BtnClear_Click" Grid.Row="4" Grid.Column="2"/>
             <Button Content="0" FontSize="56" Click="Btn0_Click" Grid.Column="2" Grid.Row="8"/>
             <Button Content="3" FontSize="56" Click="Btn3_Click" Grid.Column="3" Grid.Row="7"/>
             <Button Content="1" FontSize="56" Click="Btn1_Click" Grid.Row="7" Grid.Column="1"/>
@@ -158,6 +161,7 @@
                 <ComboBoxItem>ounces</ComboBoxItem>
                 <ComboBoxItem>pounds</ComboBoxItem>
             </ComboBox>
+            <Label Content="Weight" HorizontalAlignment="Left" Margin="50,4,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="85"/>
         </Grid>
 
         <!--Temperature-->
@@ -181,8 +185,8 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Button Content="♡≡♡" Height="25" Click="Button_Click"  Background="Transparent"  Margin="0,0,65.4,46.6" VerticalAlignment="Bottom"/>
-            <Button Content="CE"  FontSize="28" Background="#FF0008FF" Click="BtnClear_Click" Grid.Row="4" Grid.Column="2"/>
+            <Button Content="♡≡♡" Height="25" Click="Button_Click" BorderThickness="0" Background="Transparent"  Margin="0,0,65.4,46.6" VerticalAlignment="Bottom"/>
+            <Button Content="CE"  FontSize="28" Click="BtnClear_Click" Grid.Row="4" Grid.Column="2"/>
             <Button Content="0" FontSize="56" Click="Btn0_Click" Grid.Column="2" Grid.Row="8"/>
             <Button Content="3" FontSize="56" Click="Btn3_Click" Grid.Column="3" Grid.Row="7"/>
             <Button Content="1" FontSize="56" Click="Btn1_Click" Grid.Row="7" Grid.Column="1"/>
@@ -202,6 +206,7 @@
                 <ComboBoxItem>Celsius</ComboBoxItem>
                 <ComboBoxItem>Fahrenheits</ComboBoxItem>
             </ComboBox>
+            <Label Content="Temperature" HorizontalAlignment="Left" Margin="50,4,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="85"/>
         </Grid>
 
         <!--length-->
@@ -225,8 +230,8 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Button Content="♡≡♡" Height="25" Click="Button_Click"  Background="Transparent"  Margin="0,0,65.4,46.6" VerticalAlignment="Bottom"/>
-            <Button Content="CE"  FontSize="28" Background="#FF0008FF" Click="BtnClear_Click" Grid.Row="4" Grid.Column="2"/>
+            <Button Content="♡≡♡" Height="25" Click="Button_Click" BorderThickness="0"  Background="Transparent"  Margin="0,0,65.4,46.6" VerticalAlignment="Bottom"/>
+            <Button Content="CE"  FontSize="28" Click="BtnClear_Click" Grid.Row="4" Grid.Column="2"/>
             <Button Content="0" FontSize="56" Click="Btn0_Click" Grid.Column="2" Grid.Row="8"/>
             <Button Content="3" FontSize="56" Click="Btn3_Click" Grid.Column="3" Grid.Row="7"/>
             <Button Content="1" FontSize="56" Click="Btn1_Click" Grid.Row="7" Grid.Column="1"/>
@@ -250,6 +255,7 @@
                 <ComboBoxItem>inches</ComboBoxItem>
                 <ComboBoxItem>feet</ComboBoxItem>
             </ComboBox>
+            <Label Content="Length" HorizontalAlignment="Left" Margin="50,4,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="85"/>
         </Grid>
 
         <!--fileSize-->
@@ -273,8 +279,8 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Button Content="♡≡♡" Height="25" Click="Button_Click"  Background="Transparent"  Margin="0,0,65.4,46.6" VerticalAlignment="Bottom"/>
-            <Button Content="CE"  FontSize="28" Background="#FF0008FF" Click="BtnClear_Click" Grid.Row="4" Grid.Column="2"/>
+            <Button Content="♡≡♡" Height="25" Click="Button_Click" BorderThickness="0" Background="Transparent"  Margin="0,0,65.4,46.6" VerticalAlignment="Bottom"/>
+            <Button Content="CE"  FontSize="28" Click="BtnClear_Click" Grid.Row="4" Grid.Column="2"/>
             <Button Content="0" FontSize="56" Click="Btn0_Click" Grid.Column="2" Grid.Row="8"/>
             <Button Content="3" FontSize="56" Click="Btn3_Click" Grid.Column="3" Grid.Row="7"/>
             <Button Content="1" FontSize="56" Click="Btn1_Click" Grid.Row="7" Grid.Column="1"/>
@@ -297,6 +303,7 @@
                 <ComboBoxItem>gigabytes</ComboBoxItem>
                 <ComboBoxItem>terabytes</ComboBoxItem>
             </ComboBox>
+            <Label Content="FileSize" HorizontalAlignment="Left" Margin="50,4,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="85"/>
         </Grid>
 
         <!--time-->
@@ -320,8 +327,8 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Button Content="♡≡♡" Height="25" Click="Button_Click"  Background="Transparent"  Margin="0,0,65.4,46.6" VerticalAlignment="Bottom"/>
-            <Button Content="CE"  FontSize="28" Background="#FF0008FF" Click="BtnClear_Click" Grid.Row="4" Grid.Column="2"/>
+            <Button Content="♡≡♡" Height="25" Click="Button_Click" BorderThickness="0" Background="Transparent"  Margin="0,0,65.4,46.6" VerticalAlignment="Bottom"/>
+            <Button Content="CE"  FontSize="28" Click="BtnClear_Click" Grid.Row="4" Grid.Column="2"/>
             <Button Content="0" FontSize="56" Click="Btn0_Click" Grid.Column="2" Grid.Row="8"/>
             <Button Content="3" FontSize="56" Click="Btn3_Click" Grid.Column="3" Grid.Row="7"/>
             <Button Content="1" FontSize="56" Click="Btn1_Click" Grid.Row="7" Grid.Column="1"/>
@@ -342,6 +349,7 @@
                 <ComboBoxItem>minutes</ComboBoxItem>
                 <ComboBoxItem>seconds</ComboBoxItem>
             </ComboBox>
+            <Label Content="Time" HorizontalAlignment="Left" Margin="50,4,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="85"/>
         </Grid>
     </Grid>
 </Window>

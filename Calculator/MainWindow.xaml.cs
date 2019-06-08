@@ -22,13 +22,17 @@ namespace Calculator
     /// </summary>
     public partial class MainWindow : Window
     {
+
+
         public MainWindow()
         {
             InitializeComponent();
+
         }
 
         private void Grid_Initialized(object sender, EventArgs e)
         {
+            resultTxtBox.Text = "";
             this.Standard.Visibility = Visibility.Visible;
             this.Weight.Visibility = Visibility.Collapsed;
             this.Temperature.Visibility = Visibility.Collapsed;
@@ -40,6 +44,7 @@ namespace Calculator
 
         private void Standard_Click(object sender, RoutedEventArgs e)
         {
+            resultTxtBox.Text = "";
             this.Standard.Visibility = Visibility.Visible;
             this.Weight.Visibility = Visibility.Collapsed;
             this.Temperature.Visibility = Visibility.Collapsed;
@@ -51,6 +56,7 @@ namespace Calculator
 
         private void Programmer_Click(object sender, RoutedEventArgs e)
         {
+            resultTxtBox.Text = "";
             this.Standard.Visibility = Visibility.Collapsed;
             this.Weight.Visibility = Visibility.Collapsed;
             this.Temperature.Visibility = Visibility.Collapsed;
@@ -61,6 +67,7 @@ namespace Calculator
         }
         private void Weight_Click(object sender, RoutedEventArgs e)
         {
+            resultTxtBox.Text = "";
             this.Standard.Visibility = Visibility.Collapsed;
             this.Weight.Visibility = Visibility.Visible;
             this.Temperature.Visibility = Visibility.Collapsed;
@@ -72,6 +79,7 @@ namespace Calculator
 
         private void Temperature_Click(object sender, RoutedEventArgs e)
         {
+            resultTxtBox.Text = "";
             this.Standard.Visibility = Visibility.Collapsed;
             this.Weight.Visibility = Visibility.Collapsed;
             this.Temperature.Visibility = Visibility.Visible;
@@ -83,6 +91,7 @@ namespace Calculator
 
         private void Length_Click(object sender, RoutedEventArgs e)
         {
+            resultTxtBox.Text = "";
             this.Standard.Visibility = Visibility.Collapsed;
             this.Weight.Visibility = Visibility.Collapsed;
             this.Temperature.Visibility = Visibility.Collapsed;
@@ -94,6 +103,7 @@ namespace Calculator
 
         private void FileSize_Click(object sender, RoutedEventArgs e)
         {
+            resultTxtBox.Text = "";
             this.Standard.Visibility = Visibility.Collapsed;
             this.Weight.Visibility = Visibility.Collapsed;
             this.Temperature.Visibility = Visibility.Collapsed;
@@ -105,6 +115,7 @@ namespace Calculator
 
         private void Time_Click(object sender, RoutedEventArgs e)
         {
+            resultTxtBox.Text = "";
             this.Standard.Visibility = Visibility.Collapsed;
             this.Weight.Visibility = Visibility.Collapsed;
             this.Temperature.Visibility = Visibility.Collapsed;
@@ -170,6 +181,7 @@ namespace Calculator
         private void Btn8_Click(object sender, RoutedEventArgs e)
         {
             resultTxtBox.Text = resultTxtBox.Text + "8";
+
         }
 
         private void Btn9_Click(object sender, RoutedEventArgs e)
@@ -178,132 +190,154 @@ namespace Calculator
         }
         private void BtnNegative_Click(object sender, RoutedEventArgs e)
         {
+            if (resultTxtBox.Text == "-" || resultTxtBox.Text != "")
+            {
+                return;
+            }
             resultTxtBox.Text = resultTxtBox.Text + "-";
         }
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-            total1 = total1 += double.Parse(resultTxtBox.Text);
-            resultTxtBox.Text = "";
+            if (resultTxtBox.Text != "")
+            {
+                total1 = total1 += double.Parse(resultTxtBox.Text);
+                resultTxtBox.Text = "";
 
-            plusButtonClicked = true;
-            minusButtonClicked = false;
-            multiplyButtonClicked = false;
-            divideButtonClicked = false;
-            modulusButtonClicked = false;
-            powerButtonClicked = false;
-            factorialButtonClicked = false;
-            squareButtonClicked = false;
-            //proButtonClicked = false;
+                plusButtonClicked = true;
+                minusButtonClicked = false;
+                multiplyButtonClicked = false;
+                divideButtonClicked = false;
+                modulusButtonClicked = false;
+                powerButtonClicked = false;
+                factorialButtonClicked = false;
+                squareButtonClicked = false;
+            }
         }
         private void BtnSubtract_Click(object sender, RoutedEventArgs e)
         {
-            total1 = total1 + double.Parse(resultTxtBox.Text);
-            resultTxtBox.Text = "";
+            if (resultTxtBox.Text != "")
+            {
+                total1 = total1 + double.Parse(resultTxtBox.Text);
+                resultTxtBox.Text = "";
 
-            plusButtonClicked = false;
-            minusButtonClicked = true;
-            multiplyButtonClicked = false;
-            divideButtonClicked = false;
-            modulusButtonClicked = false;
-            powerButtonClicked = false;
-            factorialButtonClicked = false;
-            squareButtonClicked = false;
-            //proButtonClicked = false;
+                plusButtonClicked = false;
+                minusButtonClicked = true;
+                multiplyButtonClicked = false;
+                divideButtonClicked = false;
+                modulusButtonClicked = false;
+                powerButtonClicked = false;
+                factorialButtonClicked = false;
+                squareButtonClicked = false;
+            }
         }
 
         private void BtnMultiply_Click(object sender, RoutedEventArgs e)
         {
-            total1 = total1 + double.Parse(resultTxtBox.Text);
-            resultTxtBox.Text = "";
+            if (resultTxtBox.Text != "")
+            {
+                total1 = total1 + double.Parse(resultTxtBox.Text);
+                resultTxtBox.Text = "";
 
-            plusButtonClicked = false;
-            minusButtonClicked = false;
-            multiplyButtonClicked = true;
-            divideButtonClicked = false;
-            modulusButtonClicked = false;
-            powerButtonClicked = false;
-            factorialButtonClicked = false;
-            squareButtonClicked = false;
-            //proButtonClicked = false;
+                plusButtonClicked = false;
+                minusButtonClicked = false;
+                multiplyButtonClicked = true;
+                divideButtonClicked = false;
+                modulusButtonClicked = false;
+                powerButtonClicked = false;
+                factorialButtonClicked = false;
+                squareButtonClicked = false;
+            }
         }
 
         private void BtnDivide_Click(object sender, RoutedEventArgs e)
         {
-            total1 = total1 + double.Parse(resultTxtBox.Text);
-            resultTxtBox.Text = "";
+            if (resultTxtBox.Text != "")
+            {
+                total1 = total1 + double.Parse(resultTxtBox.Text);
+                resultTxtBox.Text = "";
 
-            plusButtonClicked = false;
-            minusButtonClicked = false;
-            multiplyButtonClicked = false;
-            divideButtonClicked = true;
-            modulusButtonClicked = false;
-            powerButtonClicked = false;
-            factorialButtonClicked = false;
-            squareButtonClicked = false;
-            //proButtonClicked = false;
+                plusButtonClicked = false;
+                minusButtonClicked = false;
+                multiplyButtonClicked = false;
+                divideButtonClicked = true;
+                modulusButtonClicked = false;
+                powerButtonClicked = false;
+                factorialButtonClicked = false;
+                squareButtonClicked = false;
+            }
         }
 
         private void BtnMod_Click(object sender, RoutedEventArgs e)
         {
-            total1 = total1 + double.Parse(resultTxtBox.Text);
-            resultTxtBox.Text = "";
+            if (resultTxtBox.Text != "")
+            {
+                total1 = total1 + double.Parse(resultTxtBox.Text);
+                resultTxtBox.Text = "";
 
-            plusButtonClicked = false;
-            minusButtonClicked = false;
-            multiplyButtonClicked = false;
-            divideButtonClicked = false;
-            modulusButtonClicked = true;
-            powerButtonClicked = false;
-            factorialButtonClicked = false;
-            squareButtonClicked = false;
-            //proButtonClicked = false;
+                plusButtonClicked = false;
+                minusButtonClicked = false;
+                multiplyButtonClicked = false;
+                divideButtonClicked = false;
+                modulusButtonClicked = true;
+                powerButtonClicked = false;
+                factorialButtonClicked = false;
+                squareButtonClicked = false;
+            }
         }
 
         private void BtnPower_Click(object sender, RoutedEventArgs e)
         {
-            total1 = total1 + double.Parse(resultTxtBox.Text);
-            resultTxtBox.Text = "";
+            if (resultTxtBox.Text != "")
+            {
+                total1 = total1 + double.Parse(resultTxtBox.Text);
+                resultTxtBox.Text = "";
 
-            plusButtonClicked = false;
-            minusButtonClicked = false;
-            multiplyButtonClicked = false;
-            divideButtonClicked = false;
-            modulusButtonClicked = false;
-            powerButtonClicked = true;
-            factorialButtonClicked = false;
-            squareButtonClicked = false;
+                plusButtonClicked = false;
+                minusButtonClicked = false;
+                multiplyButtonClicked = false;
+                divideButtonClicked = false;
+                modulusButtonClicked = false;
+                powerButtonClicked = true;
+                factorialButtonClicked = false;
+                squareButtonClicked = false;
+            }
         }
 
         private void BtnFactorial_Click(object sender, RoutedEventArgs e)
         {
-            total1 = total1 + double.Parse(resultTxtBox.Text);
-            resultTxtBox.Text = "";
+            if (resultTxtBox.Text != "")
+            {
+                total1 = total1 + double.Parse(resultTxtBox.Text);
+                resultTxtBox.Text = "";
 
-            plusButtonClicked = false;
-            minusButtonClicked = false;
-            multiplyButtonClicked = false;
-            divideButtonClicked = false;
-            modulusButtonClicked = false;
-            powerButtonClicked = false;
-            factorialButtonClicked = true;
-            squareButtonClicked = false;
-            //proButtonClicked = false;
+                plusButtonClicked = false;
+                minusButtonClicked = false;
+                multiplyButtonClicked = false;
+                divideButtonClicked = false;
+                modulusButtonClicked = false;
+                powerButtonClicked = false;
+                factorialButtonClicked = true;
+                squareButtonClicked = false;
+            }
         }
 
         private void BtnSquare_Click(object sender, RoutedEventArgs e)
         {
-            total1 = total1 + double.Parse(resultTxtBox.Text);
-            resultTxtBox.Text = "";
+            if (resultTxtBox.Text != "")
+            {
+                total1 = total1 + double.Parse(resultTxtBox.Text);
+                resultTxtBox.Text = "";
 
-            plusButtonClicked = false;
-            minusButtonClicked = false;
-            multiplyButtonClicked = false;
-            divideButtonClicked = false;
-            modulusButtonClicked = false;
-            powerButtonClicked = false;
-            factorialButtonClicked = false;
-            squareButtonClicked = true;
+                plusButtonClicked = false;
+                minusButtonClicked = false;
+                multiplyButtonClicked = false;
+                divideButtonClicked = false;
+                modulusButtonClicked = false;
+                powerButtonClicked = false;
+                factorialButtonClicked = false;
+                squareButtonClicked = true;
+            }
         }
 
         private void BtnProgrammer_Click(object sender, RoutedEventArgs e)
@@ -317,11 +351,11 @@ namespace Calculator
             total1 = total1 + double.Parse(resultTxtBox.Text);
             resultTxtBox.Text = "";
 
-           var hexadecimal = int.Parse(total1.ToString(), System.Globalization.NumberStyles.HexNumber).ToString();
-           var binary = Convert.ToString(Convert.ToInt32(total1), 2);
-           var octal = Convert.ToString(Convert.ToInt32(total1), 10);
-           var integer = total1.ToString();
-            ProgrammerResultTxtBox.Text = $"Integer:{integer} Hexadecimal:{hexadecimal} Binary:{binary} Octal:{octal}";
+            var hexadecimal = int.Parse(total1.ToString(), System.Globalization.NumberStyles.HexNumber).ToString();
+            var binary = Convert.ToString(Convert.ToInt32(total1), 2);
+            var octal = Convert.ToString(Convert.ToInt32(total1), 10);
+            var integer = total1.ToString();
+            ProgrammerResultTxtBox.Text = $"Integer:{integer} Hexadecimal:{hexadecimal}\n Binary:{binary} Octal:{octal}";
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -331,13 +365,27 @@ namespace Calculator
         }
         private void BtnPercent_Click(object sender, RoutedEventArgs e)
         {
-            total1 = total1 + double.Parse(resultTxtBox.Text);
-            resultTxtBox.Text = "";
-            resultTxtBox.Text = total1.ToString("0.0%");
+            if (resultTxtBox.Text != "")
+            {
+                if (resultTxtBox.Text.Substring(resultTxtBox.Text.Length - 1) == "%")
+                {
+                    var data = double.Parse(resultTxtBox.Text.Remove(resultTxtBox.Text.Length - 1));
+                    resultTxtBox.Text = "";
+                    var result = double.Parse(total1.ToString()) / 100;
+                    resultTxtBox.Text = result.ToString();
+                }
+                else
+                {
+                    total1 = total1 + double.Parse(resultTxtBox.Text);
+                    resultTxtBox.Text = "";
+                    resultTxtBox.Text = total1.ToString("0.0%");
+                }
+            }
         }
 
         private void BtnWeight_Click(object sender, RoutedEventArgs e)
         {
+
             total1 = total1 + double.Parse(resultTxtBox.Text);
             resultTxtBox.Text = "";
         }
@@ -367,20 +415,27 @@ namespace Calculator
                 resultTxtBox.Text = total2.ToString();
                 total1 = 0;
             }
-            else if(modulusButtonClicked == true)
-            {
-                total2 = total1 % double.Parse(resultTxtBox.Text);
-                resultTxtBox.Text = total2.ToString();
-                total1 = 0;
-            }
-            else if(powerButtonClicked == true)
+            else if (modulusButtonClicked == true)
             {
                 var num2 = resultTxtBox.Text;
-                total2 = Math.Pow(double.Parse(total1.ToString()), double.Parse(num2.ToString()));
-                resultTxtBox.Text = total2.ToString();
-                total1 = 0;
+                if (num2 != "")
+                {
+                    total2 = total1 % double.Parse(num2);
+                    resultTxtBox.Text = total2.ToString();
+                    total1 = 0;
+                }
             }
-            else if(factorialButtonClicked == true)
+            else if (powerButtonClicked == true)
+            {
+                var num2 = resultTxtBox.Text;
+                if (num2 != "")
+                {
+                    total2 = Math.Pow(double.Parse(total1.ToString()), double.Parse(num2.ToString()));
+                    resultTxtBox.Text = total2.ToString();
+                    total1 = 0;
+                }
+            }
+            else if (factorialButtonClicked == true)
             {
                 long num = 1;
                 for (long i = 1; i <= long.Parse(total1.ToString()); i++)
@@ -390,7 +445,7 @@ namespace Calculator
                 resultTxtBox.Text = num.ToString();
                 total1 = 0;
             }
-            else if(squareButtonClicked == true)
+            else if (squareButtonClicked == true)
             {
                 resultTxtBox.Text = Math.Sqrt(double.Parse(total1.ToString())).ToString();
                 total1 = 0;
@@ -405,7 +460,7 @@ namespace Calculator
 
         private void BtnDecimalPoint_Click(object sender, RoutedEventArgs e)
         {
-            
+
             resultTxtBox.Text = resultTxtBox.Text + ".";
         }
 
@@ -425,17 +480,17 @@ namespace Calculator
                 return;
             }
             total1 = total1 + double.Parse(resultTxtBox.Text);
-            if(value == "---Choice Origin Unit---")
+            if (value == "---Choice Origin Unit---")
             {
                 return;
             }
             if (value == "milligrams")
             {
-                 milligram = double.Parse(total1.ToString());
-                 gram = 0.001 * milligram;
-                 kilogram = 0.000001 * gram;
-                 ounce = 28.3495231 * gram;
-                 pound = 0.45359237 * kilogram;
+                milligram = double.Parse(total1.ToString());
+                gram = 0.001 * milligram;
+                kilogram = 0.000001 * gram;
+                ounce = 28.3495231 * gram;
+                pound = 0.45359237 * kilogram;
             }
             if (value == "grams")
             {
@@ -460,7 +515,7 @@ namespace Calculator
                 ounce = double.Parse(total1.ToString());
                 gram = ounce / 28.3495231;
                 milligram = 1000 * gram;
-                kilogram = gram/1000;
+                kilogram = gram / 1000;
                 pound = 0.45359237 * kilogram;
             }
             if (value == "pounds")
@@ -505,14 +560,14 @@ namespace Calculator
                 fahrenheit = double.Parse(total1.ToString());
                 celsius = (fahrenheit - 32) * 5 / 9;
             }
-            temperatureResultTxtBox.Text = $"Celsius:{celsius.ToString()} Fahrenheits:{fahrenheit.ToString()}";  
+            temperatureResultTxtBox.Text = $"Celsius:{celsius.ToString()} Fahrenheits:{fahrenheit.ToString()}";
         }
 
         private void Length_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             total1 = 0;
             double millimetres = 0, centimeters = 0, meters = 0, kilometers = 0, inches = 0, feet = 0;
-             ComboBoxItem typeItem = (ComboBoxItem)lengthComboBox.SelectedItem;
+            ComboBoxItem typeItem = (ComboBoxItem)lengthComboBox.SelectedItem;
             if (typeItem.Content == null)
             {
                 return;
@@ -585,7 +640,7 @@ namespace Calculator
                 millimetres = 10 * centimeters;
                 inches = 2.54 * centimeters;
             }
-         lengthResultTxtBox.Text = $"Millimetres:{millimetres.ToString("G")} Centimeters:{centimeters.ToString("G")}\n Meters:{meters.ToString("G")} Kilometers:{kilometers.ToString("G")}\n Inches:{inches.ToString("G")} Feet:{feet.ToString("G")}";
+            lengthResultTxtBox.Text = $"Millimetres:{millimetres.ToString("G")} Centimeters:{centimeters.ToString("G")}\n Meters:{meters.ToString("G")} Kilometers:{kilometers.ToString("G")}\n Inches:{inches.ToString("G")} Feet:{feet.ToString("G")}";
         }
 
         private void FileSize_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -662,11 +717,11 @@ namespace Calculator
             total1 = 0;
             double hours = 0, minutes = 0, seconds = 0;
             ComboBoxItem typeItem = (ComboBoxItem)timeComboBox.SelectedItem;
-            if(typeItem.Content == null)
+            if (typeItem.Content == null)
             {
                 return;
             }
-             string value = typeItem.Content.ToString();
+            string value = typeItem.Content.ToString();
             if (resultTxtBox.Text == "")
             {
                 LastResultTxtBox.Text = "Please input correct number!";
