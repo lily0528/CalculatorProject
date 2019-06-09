@@ -355,7 +355,7 @@ namespace Calculator
             var binary = Convert.ToString(Convert.ToInt32(total1), 2);
             var octal = Convert.ToString(Convert.ToInt32(total1), 10);
             var integer = total1.ToString();
-            ProgrammerResultTxtBox.Text = $"Integer:{integer} Hexadecimal:{hexadecimal}\n Binary:{binary} Octal:{octal}";
+            ProgrammerResultTxtBox.Text = $"Integer:{integer} Hexadecimal:{hexadecimal}\nBinary:{binary} Octal:{octal}";
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -371,7 +371,7 @@ namespace Calculator
                 {
                     var data = double.Parse(resultTxtBox.Text.Remove(resultTxtBox.Text.Length - 1));
                     resultTxtBox.Text = "";
-                    var result = double.Parse(total1.ToString()) / 100;
+                    var result = double.Parse(data.ToString()) / 100;
                     resultTxtBox.Text = result.ToString();
                 }
                 else
@@ -526,7 +526,7 @@ namespace Calculator
                 ounce = 28.3495231 * gram;
                 milligram = 1000 * gram;
             }
-            LastResultTxtBox.Text = $" Milligram: {milligram.ToString()} Gram: {gram.ToString()}\n Kilogram: {kilogram.ToString()} Ounce: {ounce.ToString()}\n Pound: {pound.ToString()}";
+            LastResultTxtBox.Text = $" Milligram: {milligram.ToString()} Gram: {gram.ToString()}\nKilogram: {kilogram.ToString()} Ounce: {ounce.ToString()}\n Pound: {pound.ToString()}";
         }
 
         private void Temperature_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -640,7 +640,7 @@ namespace Calculator
                 millimetres = 10 * centimeters;
                 inches = 2.54 * centimeters;
             }
-            lengthResultTxtBox.Text = $"Millimetres:{millimetres.ToString("G")} Centimeters:{centimeters.ToString("G")}\n Meters:{meters.ToString("G")} Kilometers:{kilometers.ToString("G")}\n Inches:{inches.ToString("G")} Feet:{feet.ToString("G")}";
+            lengthResultTxtBox.Text = $"Millimetres:{millimetres.ToString("G")} Centimeters:{centimeters.ToString("G")}\nMeters:{meters.ToString("G")} Kilometers:{kilometers.ToString("G")}\n Inches:{inches.ToString("G")} Feet:{feet.ToString("G")}";
         }
 
         private void FileSize_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -709,7 +709,7 @@ namespace Calculator
                 kilobytes = megabytes * 1024;
                 bytes = kilobytes * 1024;
             }
-            fileSizeResultTxtBox.Text = $"Bytes:{bytes.ToString()} Kilobytes:{kilobytes.ToString()}\n Megabytes:{megabytes.ToString()} Gigabytes:{gigabytes.ToString()}\n Terabytes:{terabytes.ToString()}";
+            fileSizeResultTxtBox.Text = $"Bytes:{bytes.ToString()} Kilobytes:{kilobytes.ToString()}\nMegabytes:{megabytes.ToString()} Gigabytes:{gigabytes.ToString()}\n Terabytes:{terabytes.ToString()}";
         }
 
         private void Time_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -751,7 +751,7 @@ namespace Calculator
                 minutes = seconds / 60;
                 hours = minutes / 60;
             }
-            timeResultTxtBox.Text = $"Hours:{hours.ToString()} Minutes:{minutes.ToString()}\n Seconds:{seconds.ToString()}";
+            timeResultTxtBox.Text = $"Hours:{hours.ToString()} Minutes:{minutes.ToString()}\nSeconds:{seconds.ToString()}";
         }
 
         private void Backspace_Click(object sender, RoutedEventArgs e)
@@ -763,3 +763,4 @@ namespace Calculator
 
     }
 }
+
